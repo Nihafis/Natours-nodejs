@@ -7,7 +7,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: window.location.href.replace('/login', '/api/v1/users/login'),
+      url: '/api/v1/users/login',
       data: {
         email,
         password,
