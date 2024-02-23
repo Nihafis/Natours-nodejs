@@ -50,6 +50,16 @@ exports.getLoginForm = (req, res) => {
     });
 };
 
+exports.getSignupForm = (req, res) => {
+  res
+    .status(200)
+    .set('Content-Security-Policy', "connect-src 'self' http://localhost:3000/")
+    .render('signup', {
+      title: 'Sign up',
+    });
+};
+
+
 exports.getAccount = (req, res) => {
   // console.log(user);
   res

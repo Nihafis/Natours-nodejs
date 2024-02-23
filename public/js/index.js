@@ -1,6 +1,7 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { login, logout } from './login';
+import { signup } from './signup';
 import { displayMap } from './mapbox';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
@@ -8,6 +9,7 @@ import { bookTour } from './stripe';
 // DOM ELEMENTS
 
 const mapBox = document.getElementById('map');
+const signupForm = document.querySelector('.form--signup');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
@@ -18,6 +20,17 @@ const bookBtn = document.getElementById('book-tour');
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (signupForm) {
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    signup(email, name, password, confirmPassword);
+  });
 }
 
 if (loginForm) {
@@ -67,6 +80,6 @@ if (bookBtn)
   bookBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const tourId = e.target.dataset.tourId;
-   
+
     bookTour(tourId);
-  }); 
+  });

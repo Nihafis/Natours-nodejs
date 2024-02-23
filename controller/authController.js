@@ -15,6 +15,7 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+ 
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
@@ -34,8 +35,8 @@ const createSendToken = (user, statusCode, res) => {
     data: {
       user,
     },
-  });
-};
+  }); 
+}; 
 
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
@@ -44,7 +45,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
   });
-
+ 
   const url = `${req.protocol}://${req.get('host')}/me`;
 
   await new Email(newUser, url).sendWelcome();

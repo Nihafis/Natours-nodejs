@@ -4,9 +4,11 @@ const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
   return new AppError(message, 400);
 };
-
+ 
 const handleDuplicaterFieldsDB = (err) => {
-  const value = err.keyValue.name;
+ 
+  const key = Object.keys(err.keyPattern);
+  const value = err.keyValue[key];
   const message = `Duplicater field value "${value}" Please use another value`;
   return new AppError(message, 400);
 };
@@ -64,7 +66,7 @@ const sendErrorProd = (err, req, res) => {
 
   // (B) RENDER WEBSITE
   // A) Operational ,trusted error send message to client
-  if (err.isOperational) {  
+  if (err.isOperational) {
     return res.status(err.statusCode).render('error', {
       title: 'Somthing went wrong!',
       msg: err.message,
@@ -102,8 +104,8 @@ module.exports = (err, req, res, next) => {
     if (error.name === 'JsonWebTokenError') error = handleJWTError();
     if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
 
-      // console.log(err.message );
-      // console.log(error.message );
+    // console.log(err.message );
+    // console.log(error.message );
     sendErrorProd(error, req, res);
   }
 };
