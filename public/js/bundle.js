@@ -12011,7 +12011,7 @@ var login = exports.login = /*#__PURE__*/function () {
             (0, _alert.showAlert)('success', 'Logged in successfully!');
             window.setTimeout(function () {
               location.assign('/');
-            }, 1500);
+            }, 1000);
           }
 
           // console.log(res);
@@ -12433,6 +12433,7 @@ if (mapBox) {
 if (signupForm) {
   signupForm.addEventListener('submit', function (e) {
     e.preventDefault();
+    document.querySelector('.btn--green').textContent = 'Singup...';
     var email = document.getElementById('email').value;
     var name = document.getElementById('name').value;
     var password = document.getElementById('password').value;
@@ -12443,6 +12444,7 @@ if (signupForm) {
 if (loginForm) {
   loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
+    document.querySelector('.btn--green').textContent = 'Login...';
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     (0, _login.login)(email, password);

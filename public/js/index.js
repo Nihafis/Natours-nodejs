@@ -25,6 +25,7 @@ if (mapBox) {
 if (signupForm) {
   signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    document.querySelector('.btn--green').textContent = 'Singup...';
     const email = document.getElementById('email').value;
     const name = document.getElementById('name').value;
     const password = document.getElementById('password').value;
@@ -36,6 +37,7 @@ if (signupForm) {
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    document.querySelector('.btn--green').textContent = 'Login...';
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email, password);
