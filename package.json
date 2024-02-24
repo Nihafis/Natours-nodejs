@@ -16,7 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+<<<<<<< HEAD
     "@img/sharp-win32-x64": "^0.33.2",
+=======
+>>>>>>> e67cac6fbeb2dbabf46f5091f173705066789490
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
@@ -31,7 +34,10 @@
     "hpp": "^0.2.3",
     "html-to-text": "^5.1.1",
     "jsonwebtoken": "^9.0.2",
+<<<<<<< HEAD
     "latest": "^0.2.0",
+=======
+>>>>>>> e67cac6fbeb2dbabf46f5091f173705066789490
     "mongoose": "^5.13.22",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",

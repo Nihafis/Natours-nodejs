@@ -35,6 +35,10 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     ],
     mode: 'payment',
   });
+<<<<<<< HEAD
+=======
+
+>>>>>>> e67cac6fbeb2dbabf46f5091f173705066789490
   // 3) Create session as response
   res.status(200).json({
     status: 'success',
@@ -53,6 +57,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 //   res.redirect(req.originalUrl.split('?')[0]);
 // });
 const createBookingCheckout = async (session) => {
+<<<<<<< HEAD
     const tour = session.client_reference_id;
     const user = ( await User.findOne({email: session.customer_details.email}) ).id;
     const price = session.amount_total / 100;
@@ -60,6 +65,13 @@ const createBookingCheckout = async (session) => {
     await Booking.create({tour, user, price});
   };
 
+=======
+  const tour = session.client_reference_id;
+  const user = (await User.findOne({ email: session.customer_email })).id;
+  const price = session.line_items[0].price_data.unit_amount / 100;
+  await Booking.create({ tour, user, price });
+};
+>>>>>>> e67cac6fbeb2dbabf46f5091f173705066789490
 
 exports.webHookCheckout = catchAsync(async (req, res, next) => {
   const signature = req.headers['stripe-signature'];
