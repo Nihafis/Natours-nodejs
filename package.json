@@ -59,7 +59,7 @@
     "parcel-bundler": "^1.12.5",
     "prettier": "^3.2.4"
   },
-  "enfines": {
+  "engines": {
     "node": "^18"
   }
 }
