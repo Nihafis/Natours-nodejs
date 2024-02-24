@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "5cc39d50-3a6c-4566-ab43-9595ba5e649a",
+		"name": "Natours",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23527429"
+	},
+	"item": [
+		{
+			"name": "Tours",
+			"item": [
+				{
+					"name": "Create Tour",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Super secret Tour\",\r\n    \"duration\": 1,\r\n    \"maxGroupSize\": 1,\r\n    \"difficulty\": \"difficult\",\r\n    \"price\": 1,\r\n    \"summary\": \"Test tour\",\r\n    \"imageCover\": \"tour-3-cover.jpg\",\r\n    \"secretTour\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tour",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours?sort=-price,ratingsAverage",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration[gte]",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "price[lt]",
+									"value": "1500",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-price,ratingsAverage"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tour",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ratingAverage\": \"4.9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/65b7b6df7dba46545821ca61",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"65b7b6df7dba46545821ca61"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tour",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/65b6617ca239bb4bf4a04146",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"65b6617ca239bb4bf4a04146"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tour",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/65b65b4e89e4851614235658",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"65b65b4e89e4851614235658"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REFERENCE GET ALL TOURS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.natours.dev/api/v1/tours",
+							"protocol": "https",
+							"host": [
+								"www",
+								"natours",
+								"dev"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "top 5 cheap tours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/top-5-cheap",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"top-5-cheap"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get monthly plan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/monthly-plan/2021",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"monthly-plan",
+								"2021"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Tours stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/tours/tour-stats",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"tour-stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get All User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
