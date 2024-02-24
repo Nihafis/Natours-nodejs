@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "@img/sharp-win32-x64": "^0.33.2",
+    "@img/sharp": "^0.33.2",
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
